@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.umang.calculator.MainActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#000"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
+
+        <TextView
+            android:id="@+id/answer_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#212020"
+            android:gravity="end"
+            android:padding="16dp"
+            android:text="0"
+            android:textColor="@android:color/white"
+            android:textSize="56sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/ac"
+                android:text="AC"
+                android:textColor="@android:color/holo_orange_dark"
+                android:background="@drawable/button_border"
+                android:onClick="ac"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/back"
+                android:text="@string/arrow"
+                android:textColor="@android:color/holo_orange_dark"
+                android:background="@drawable/button_border"
+                android:onClick="back"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/plus_minus"
+                android:text="+/-"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="plusminus"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/divide"
+                android:text="/"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="divide"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/seven"
+                android:text="7"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="seven"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/eight"
+                android:text="8"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="eight"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/nine"
+                android:text="9"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="nine"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/multiply"
+                android:text="x"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="multiply"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/four"
+                android:text="4"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="four"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/five"
+                android:text="5"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="five"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/six"
+                android:text="6"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:background="@drawable/button_border"
+                android:onClick="six"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/minus"
+                android:text="-"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="minus"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/one"
+                android:text="1"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="one"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/two"
+                android:text="2"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="two"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/three"
+                android:text="3"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="three"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/plus"
+                android:text="+"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="plus"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/zero"
+                style="@style/Button"
+                android:layout_weight="2"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="zero"/>
+
+            <Button
+                style="@style/Button"
+                android:id="@+id/point"
+                android:layout_weight="1"
+                android:text="."
+                android:textColor="@android:color/black"
+                android:background="@drawable/button_border"
+                android:onClick="dot"/>
+
+            <Button
+                android:id="@+id/equal"
+                style="@style/Button"
+                android:layout_weight="1"
+                android:text="="
+                android:textColor="@android:color/white"
+                android:background="@drawable/orange_button"
+                android:onClick="equalTo"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
