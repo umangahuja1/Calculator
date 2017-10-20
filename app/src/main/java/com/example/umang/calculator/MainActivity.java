@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity
                 answer = String.format("%.6f", result);
                 answer = removeTrailingZeros(answer);
             }
-
             displayMessage(answer);
         }
     }
