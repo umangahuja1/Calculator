@@ -8,7 +8,8 @@ import android.widget.TextView;
 
 import static android.R.attr.value;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     String answer = "";
     double two= 0, result=0;
@@ -22,32 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void equalTo(View view)
     {
-
-        String delim = "\\s+";
-        String [] tokens = answer.split(delim);
-        result = Double.parseDouble(tokens[0]);
-        for(int i=1;i<tokens.length;i+=2)
-        {
-            sign = tokens[i].charAt(0);
-            two = Double.parseDouble(tokens[i+1]);
-
-            switch (sign) {
-                case '+':
-                    result = result + two;
-                    break;
-                case '-':
-                    result = result - two;
-                    break;
-                case 'x':
-                    result = result * two;
-                    break;
-                case '/':
-                    result = result / two;
-                    break;
-            }
-
-        }
-
+        result = computeInfixExpr(answer);
         if(result%1==0)
         {
             answer = String.valueOf((int) result);
@@ -168,7 +144,11 @@ public class MainActivity extends AppCompatActivity {
         String str = answer;
         if (str != null && str.length() > 0)
         {
-            str = str.substring(0, str.length() - 1);
+            if(str.charAt(str.length() - 1) == ' ')
+                str = str.substring(0, str.length() - 3);
+
+            else
+                str = str.substring(0, str.length() - 1);
         }
         answer = str;
         displayMessage(answer);
@@ -193,7 +173,8 @@ public class MainActivity extends AppCompatActivity {
         return (index == length-1) ? str :str.substring(0,index+1);
     }
 
-    public double computeInfixExpr(String input) {
+    public double computeInfixExpr(String input)
+    {
         String[] expr = input.split(" ");
         int i = 0;
         double operLeft = Integer.valueOf(expr[i++]);
@@ -201,28 +182,13 @@ public class MainActivity extends AppCompatActivity {
             String operator = expr[i++];
             double operRight = Double.valueOf(expr[i++]);
             switch (operator) {
-                case "*":
+                case "x":
                     operLeft = operLeft * operRight;
                     break;
                 case "/":
                     operLeft = operLeft / operRight;
                     break;
                 case "+":
-                    while (i < expr.length) {
-                        String operator2 = expr[i++];
-                        if (operator2.equals("+") || operator2.equals("-")) {
-                            i--;
-                            break;
-                        }
-                        if (operator2.equals("*")) {
-                            operRight = operRight * Double.valueOf(expr[i++]);
-                        }
-                        if (operator2.equals("/")) {
-                            operRight = operRight / Double.valueOf(expr[i++]);
-                        }
-                    }
-                    operLeft = operLeft + operRight;
-                    break;
                 case "-":
                     while (i < expr.length) {
                         String operator2 = expr[i++];
@@ -230,15 +196,18 @@ public class MainActivity extends AppCompatActivity {
                             i--;
                             break;
                         }
-                        if (operator2.equals("*")) {
+                        if (operator2.equals("x")) {
                             operRight = operRight * Double.valueOf(expr[i++]);
                         }
                         if (operator2.equals("/")) {
                             operRight = operRight / Double.valueOf(expr[i++]);
                         }
                     }
+                    if (operator.equals("+"))
+                    operLeft = operLeft + operRight;
+
+                    else
                     operLeft = operLeft - operRight;
-                    break;
             }
         }
         return operLeft;
