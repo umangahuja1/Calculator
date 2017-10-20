@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
     public void ac(View view)
     {
         answer = "";
-        displayMessage(answer);
+        displayMessage(String.valueOf(0));
     }
 
     public void divide(View view)
@@ -130,12 +130,6 @@ public class MainActivity extends AppCompatActivity
     public void dot(View view)
     {
         answer += ".";
-        displayMessage(answer);
-    }
-
-    public void plusminus(View view)
-    {
-        answer = "+-";
         displayMessage(answer);
     }
 
@@ -177,10 +171,13 @@ public class MainActivity extends AppCompatActivity
     {
         String[] expr = input.split(" ");
         int i = 0;
-        double operLeft = Integer.valueOf(expr[i++]);
+        double operRight=0;
+        double operLeft = Double.valueOf(expr[i++]);
         while (i < expr.length) {
             String operator = expr[i++];
-            double operRight = Double.valueOf(expr[i++]);
+            if(i!=expr.length)
+            operRight = Double.valueOf(expr[i++]);
+
             switch (operator) {
                 case "x":
                     operLeft = operLeft * operRight;

@@ -41,6 +41,7 @@
                 style="@style/Button"
                 android:id="@+id/ac"
                 android:text="AC"
+                android:layout_weight="2"
                 android:textColor="@android:color/holo_orange_dark"
                 android:background="@drawable/button_border"
                 android:onClick="ac"/>
@@ -52,14 +53,6 @@
                 android:textColor="@android:color/holo_orange_dark"
                 android:background="@drawable/button_border"
                 android:onClick="back"/>
-
-            <Button
-                style="@style/Button"
-                android:id="@+id/plus_minus"
-                android:text="+/-"
-                android:textColor="@android:color/black"
-                android:background="@drawable/button_border"
-                android:onClick="plusminus"/>
 
             <Button
                 style="@style/Button"
