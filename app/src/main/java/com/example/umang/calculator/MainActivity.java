@@ -23,18 +23,19 @@ public class MainActivity extends AppCompatActivity
 
     public void equalTo(View view)
     {
-        result = computeInfixExpr(answer);
-        if(result%1==0)
+        if(answer !="")
         {
-            answer = String.valueOf((int) result);
-        }
-        else
-        {
-            answer = String.format("%.6f", result);
-            answer = removeTrailingZeros(answer);
-        }
+            result = computeInfixExpr(answer);
+            if (result % 1 == 0) {
+                answer = String.valueOf((int) result);
+            }
+            else {
+                answer = String.format("%.6f", result);
+                answer = removeTrailingZeros(answer);
+            }
 
-        displayMessage(answer);
+            displayMessage(answer);
+        }
     }
 
     public void one(View view)
